@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import MOCK_DATA from '../../assets/Datas';
 import PokemonCard from './PokemonCard';
+import { usePokemonContext } from '../../context/PokemonContext';
 
 const ListContainer = styled.div`
   display: flex;
@@ -12,7 +13,8 @@ const ListContainer = styled.div`
 `;
 
 
-const PokemonList = ({addPokemon, removePokemon, selectedPokemons }) => {
+const PokemonList = () => {
+  const {addPokemon, removePokemon, selectedPokemons} = usePokemonContext();
   return (
 <ListContainer>
     {MOCK_DATA.map((pokemon) => (

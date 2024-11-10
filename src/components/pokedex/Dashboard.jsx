@@ -5,6 +5,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PokemonList from "./PokemonList";
+import { usePokemonContext } from "../../context/PokemonContext";
 
 
 const DashboardContainer = styled.div`
@@ -125,7 +126,8 @@ const RemoveBtn = styled.button`
 `;
 
 
-const Dashboard = ({ selectedPokemons, removePokemon, resetPokemons, addPokemon }) => {
+const Dashboard = ( ) => {
+  const { selectedPokemons, removePokemon, resetPokemons, addPokemon } = usePokemonContext();
   const nav2 = useNavigate();
 
 
