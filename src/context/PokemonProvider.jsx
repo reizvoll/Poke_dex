@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { PokemonContext } from "./PokemonContext";
+import { PokemonContext } from "./usePokemonContext";
 
-export const PokemonEffects = ({ children }) => {
+export const PokemonProvider = ({ children }) => {
     const [selectedPokemons, setSelectedPokemons] = useState([]);
   
     const addPokemon = pokemon => {

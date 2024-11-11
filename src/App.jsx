@@ -1,15 +1,14 @@
 // rfc하라고!!!!
 
-
-import { PokemonEffects } from './context/PokemonEffects';
+import { PokemonProvider } from './context/PokemonProvider';
 import Router from './shared/Router'
 
 function App() {
 
   return (
-  <PokemonEffects>
+  <PokemonProvider>
     <Router />
-    </PokemonEffects>
+    </PokemonProvider>
   );
 }
 

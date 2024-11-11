@@ -5,37 +5,36 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PokemonList from "./PokemonList";
-import { usePokemonContext } from "../../context/PokemonContext";
-
+import { usePokemonContext } from "../../context/usePokemonContext";
 
 const DashboardContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 `;
 
 const Title = styled.h3`
-    color: #ffffff;
-    margin-bottom: 60px;
-    font-weight: normal;
-    font-size: 28px;
-    `;
+  color: #ffffff;
+  margin-bottom: 60px;
+  font-weight: normal;
+  font-size: 28px;
+`;
 
 const Container = styled.div`
-    display: flex;
-    justify-content: space-around;
-    width: auto;
-    margin-bottom: 40px;
-    gap: 50px;
+  display: flex;
+  justify-content: space-around;
+  width: auto;
+  margin-bottom: 40px;
+  gap: 50px;
 `;
 
 const BtnGroup = styled.div`
-    display: flex;
-    justify-content: space-around;
-    width: 350px;
-    margin-bottom: 40px;
-    gap: 50px;
+  display: flex;
+  justify-content: space-around;
+  width: 350px;
+  margin-bottom: 40px;
+  gap: 50px;
 `;
 
 // background: 색상 url(이미지주소값) 반복설정 위치 / 크기
@@ -44,17 +43,16 @@ const BtnGroup = styled.div`
 // background-position: center;
 // background-color: #fff;
 
-
 const Pokeball = styled.div`
-    width: 100px;
-    height: 100px;
-    background:#2f2f2f url('/icon.png') no-repeat center / 50px 50px;
-    border: 2px dashed #c1c1c1;
-    border-radius: 10px;
-    margin-bottom: 20px;
+  width: 100px;
+  height: 100px;
+  background: #2f2f2f url("/Icon.png") no-repeat center / 50px 50px;
+  border: 2px dashed #c1c1c1;
+  border-radius: 10px;
+  margin-bottom: 20px;
 `;
 
-const CatchedList =styled.div`
+const CatchedList = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -62,7 +60,7 @@ const CatchedList =styled.div`
   font-weight: bold;
   width: 180px;
   height: 240px;
-  background: #fff ;
+  background: #fff;
   color: #2b2b2b;
   border-radius: 8px;
 
@@ -73,10 +71,10 @@ const CatchedList =styled.div`
 `;
 
 const PokeballImg = styled.img`
-    width: 120px;
-    height: auto;
-    background: #fff ;
-    transform: translateY(15px);
+  width: 120px;
+  height: auto;
+  background: #fff;
+  transform: translateY(15px);
 `;
 
 const PokemonName = styled.p`
@@ -91,7 +89,7 @@ const PokemonNumber = styled.span`
 `;
 
 const StyledBtn = styled.button`
-  font-family: 'DungGeunMo';
+  font-family: "DungGeunMo";
   font-weight: bold;
   background-color: #ff0000;
   color: white;
@@ -117,7 +115,7 @@ const RemoveBtn = styled.button`
   display: block;
   width: 65px;
   height: 23px;
-  font-family: 'DungGeunMo';
+  font-family: "DungGeunMo";
   margin: 10px 10px;
 
   &:hover {
@@ -125,17 +123,16 @@ const RemoveBtn = styled.button`
   }
 `;
 
-
-const Dashboard = ( ) => {
-  const { selectedPokemons, removePokemon, resetPokemons, addPokemon } = usePokemonContext();
+const Dashboard = () => {
+  const { selectedPokemons, removePokemon, resetPokemons, addPokemon } =
+    usePokemonContext();
   const nav2 = useNavigate();
 
-
   return (
-      <DashboardContainer>
-          <Title>나만의 포켓몬 조합을 구성해보자!</Title>
-          <Container>
-          {selectedPokemons.map((pokemon) => (
+    <DashboardContainer>
+      <Title>나만의 포켓몬 조합을 구성해보자!</Title>
+      <Container>
+        {selectedPokemons.map(pokemon => (
           <CatchedList key={pokemon.id}>
             <PokeballImg src={pokemon.img_url} alt={pokemon.korean_name} />
             <PokemonName>{pokemon.korean_name}</PokemonName>
@@ -146,13 +143,17 @@ const Dashboard = ( ) => {
         {Array.from({ length: 6 - selectedPokemons.length }).map((_, index) => (
           <Pokeball key={`empty-${index}`} />
         ))}
-          </Container>
-          <BtnGroup>
-              <StyledBtn onClick={() => nav2(-1)}>돌아가기</StyledBtn>
-              <StyledBtn onClick={resetPokemons}>초기화</StyledBtn>
-          </BtnGroup>
-          <PokemonList addPokemon={addPokemon} removePokemon={removePokemon} selectedPokemons={selectedPokemons}/>
-      </DashboardContainer>
+      </Container>
+      <BtnGroup>
+        <StyledBtn onClick={() => nav2(-1)}>돌아가기</StyledBtn>
+        <StyledBtn onClick={resetPokemons}>초기화</StyledBtn>
+      </BtnGroup>
+      <PokemonList
+        addPokemon={addPokemon}
+        removePokemon={removePokemon}
+        selectedPokemons={selectedPokemons}
+      />
+    </DashboardContainer>
   );
 };
 

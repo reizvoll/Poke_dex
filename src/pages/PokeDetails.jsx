@@ -1,16 +1,13 @@
-import { useNavigate, useParams } from 'react-router-dom'
-import MOCK_DATA from '../assets/Datas';
-import PokemonDetail from '../components/pokedetails/PokemonDetail';
+import { useNavigate, useParams } from "react-router-dom";
+import MOCK_DATA from "../datas/data";
+import PokemonDetail from "../components/pokedetails/PokemonDetail";
 
 const PokeDetails = () => {
-
   const { id } = useParams();
   const nav3 = useNavigate();
 
-  const pokemon = MOCK_DATA.find((p) => p.id === parseInt(id));
-  return (
-    <PokemonDetail pokemon={pokemon} onBack={() => nav3(-1)} />
-  )
-}
+  const pokemon = MOCK_DATA.find(p => p.id === parseInt(id));
+  return <PokemonDetail pokemon={pokemon} onBack={() => nav3(-1)} />;
+};
 
-export default PokeDetails
+export default PokeDetails;
