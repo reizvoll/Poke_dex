@@ -148,11 +148,7 @@ const Dashboard = () => {
         <StyledBtn onClick={() => nav2(-1)}>돌아가기</StyledBtn>
         <StyledBtn onClick={resetPokemons}>초기화</StyledBtn>
       </BtnGroup>
-      <PokemonList
-        addPokemon={addPokemon}
-        removePokemon={removePokemon}
-        selectedPokemons={selectedPokemons}
-      />
+      <PokemonList />
     </DashboardContainer>
   );
 };
