@@ -3,6 +3,7 @@
 // 박민준의 미션 : 음악 집어넣기.. 터미널 yarn add use-sound 입력하여 useSound 활용 가능...
 // (이런걸 하는 이유는 도대체 뭘까.. 이해를 할 수 업네 진짜)
 // 음악은 audio 태그만 있으면 된다... 누구처럼 양아치마냥 설치 안해도 된다 ^-^
+// 는 무슨 해버렸다 ^-^ 살려주라... 
 
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'

@@ -87,6 +87,8 @@ const PokemonNumber = styled.span`
   color: #777;
 `;
 
+
+
 const StyledBtn = styled.button`
   font-family: "DungGeunMo";
   font-weight: bold;
