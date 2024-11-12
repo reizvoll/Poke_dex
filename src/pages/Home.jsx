@@ -59,12 +59,11 @@ const SoundEffects = ({ onClick, children }) => {
 };
 
 const Home = () => {
-
   const nav =useNavigate();
-
   const ClickStart =() => {
     nav('/PokeDex');
   }
+  
   return (
     <HomeContainer>
       <Logo src='/Logo.png' alt='pokedex_img' />

@@ -7,7 +7,6 @@ import PokemonList from '../components/pokedex/PokemonList';
 
 const PokeDex = () => {
 
-
   return (
     <>
     <Dashboard  />

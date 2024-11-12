@@ -2,13 +2,17 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useSound from "use-sound";
 import GameBoy from '/Gameboy.mp3';
+import { useDispatch } from "react-redux";
+import { addPokemon } from "../../redux/slices/pokemonSlice";
 
 const Card = styled.div`
-  width: 150px;
+  width: 170px;
+  height: 240px;
   border: 1px solid #ddd;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: #f9f9f9;
 
@@ -19,8 +23,8 @@ const Card = styled.div`
 `;
 
 const PokemonImg = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 80px;
   margin-top: 10px;
   margin-bottom: 10px;
 `;
@@ -66,12 +70,12 @@ const SoundEffects = ({ onClick, children }) => {
   );
 };
 
-export default function PokemonCard({ pokemon, addPokemon }) {
+export default function PokemonCard({ pokemon }) {
 
     const nav4 = useNavigate();
-
+    const dispatch = useDispatch();
     const addEffects = () => {
-        addPokemon(pokemon);
+        dispatch(addPokemon(pokemon));
     };
 
     return (

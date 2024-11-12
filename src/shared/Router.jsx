@@ -10,7 +10,6 @@
 // 단축기.. 뭐였지.. ㅎㅎ.. rfc
 // element 가 연결해주는거임 ㅇㅇ.. 그걸로 하셈 ㅇㅇ
 
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
 import PokeDex from '../pages/PokeDex'

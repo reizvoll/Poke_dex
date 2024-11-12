@@ -1,14 +1,15 @@
 // rfc하라고!!!!
 
-import { PokemonProvider } from './context/PokemonProvider';
+import { Provider } from 'react-redux';
+import store from './redux/config/store';
 import Router from './shared/Router'
 
 function App() {
 
   return (
-  <PokemonProvider>
+  <Provider store={store}>
     <Router />
-    </PokemonProvider>
+    </Provider>
   );
 }
 

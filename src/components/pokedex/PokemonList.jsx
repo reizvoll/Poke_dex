@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import MOCK_DATA from "../../datas/data";
 import PokemonCard from "./PokemonCard";
-import { usePokemonContext } from "../../context/usePokemonContext";
+import { useDispatch, useSelector } from "react-redux";
+import { addPokemon, removePokemon } from "../../redux/slices/pokemonSlice";
 
 const ListContainer = styled.div`
   display: flex;
@@ -13,8 +14,8 @@ const ListContainer = styled.div`
 `;
 
 const PokemonList = () => {
-  const { addPokemon, removePokemon, selectedPokemons } = usePokemonContext();
-
+  const dispatch = useDispatch();
+  const selectedPokemons = useSelector(state => state.pokemon.selectedPokemons);
 
   return (
     <ListContainer>
@@ -22,8 +23,8 @@ const PokemonList = () => {
         <PokemonCard 
           key={pokemon.id}
           pokemon={pokemon}
-          addPokemon={addPokemon}
-          removePokemon={() => removePokemon(pokemon)}
+          addPokemon={() => dispatch(addPokemon(pokemon))}
+          removePokemon={() => dispatch(removePokemon(pokemon))}
           isSelected={selectedPokemons.some(p => p.id === pokemon.id)}
         />
       ))}

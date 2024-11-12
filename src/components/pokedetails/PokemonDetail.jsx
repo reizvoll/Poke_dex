@@ -49,7 +49,6 @@ const PokemonDetail = ({pokemon, onBack }) => {
   if (!pokemon) {
     return <p>포켓몬을 찾을 수 없습니다.</p>
   }
-
   return (
     <DetailContainer>
         <PokemonImage src= {pokemon.img_url} alt={pokemon.korean_name} />

@@ -1,10 +1,10 @@
 // rafc 단축기로 생성하자.. 우리는 배운 똑똑이들이잖어.
-// 오류 : 카드 추가 중복되면 alert 생성 안됨
-// 상세페이지 넘어갔다가 오면 없어짐! (로컬스토리지 안해서 그런가..?)
+// 제발 yarn add redux바로 하지말고 react-redux 하기. (import가 잘 안됨!)
 
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { usePokemonContext } from "../../context/usePokemonContext";
+import { removePokemon, resetPokemons } from "../../redux/slices/pokemonSlice";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -36,12 +36,6 @@ const BtnGroup = styled.div`
   gap: 50px;
 `;
 
-// background: 색상 url(이미지주소값) 반복설정 위치 / 크기
-// background-size: 50px 50px;
-// background-repeat: no-repeat;
-// background-position: center;
-// background-color: #fff;
-
 const Pokeball = styled.div`
   width: 100px;
   height: 100px;
@@ -70,10 +64,11 @@ const CatchedList = styled.div`
 `;
 
 const PokeballImg = styled.img`
-  width: 120px;
-  height: auto;
+  width: 60px;
+  height: 80px;
   background: #fff;
-  transform: translateY(15px);
+  transform: translateY(30px);
+  margin-bottom: 30px;
 `;
 
 const PokemonName = styled.p`
@@ -86,8 +81,6 @@ const PokemonNumber = styled.span`
   font-size: 14px;
   color: #777;
 `;
-
-
 
 const StyledBtn = styled.button`
   font-family: "DungGeunMo";
@@ -125,8 +118,8 @@ const RemoveBtn = styled.button`
 `;
 
 const Dashboard = () => {
-  const { selectedPokemons, removePokemon, resetPokemons } =
-    usePokemonContext();
+  const dispatch = useDispatch();
+  const selectedPokemons = useSelector((state) => state.pokemon.selectedPokemons);
   const nav2 = useNavigate();
 
   return (
@@ -138,7 +131,7 @@ const Dashboard = () => {
             <PokeballImg src={pokemon.img_url} alt={pokemon.korean_name} />
             <PokemonName>{pokemon.korean_name}</PokemonName>
             <PokemonNumber>No. {pokemon.id}</PokemonNumber>
-            <RemoveBtn onClick={() => removePokemon(pokemon)}>삭제</RemoveBtn>
+            <RemoveBtn onClick={() => dispatch(removePokemon(pokemon))}>삭제</RemoveBtn>
           </CatchedList>
         ))}
         {Array(6 - selectedPokemons.length).fill(null).map((_, index) => (
@@ -147,7 +140,7 @@ const Dashboard = () => {
       </Container>
       <BtnGroup>
         <StyledBtn onClick={() => nav2(-1)}>돌아가기</StyledBtn>
-        <StyledBtn onClick={resetPokemons}>초기화</StyledBtn>
+        <StyledBtn onClick={() => dispatch(resetPokemons())}>초기화</StyledBtn>
       </BtnGroup>
     </DashboardContainer>
   );
