@@ -2,7 +2,7 @@
 // 오류 : 카드 추가 중복되면 alert 생성 안됨
 // 상세페이지 넘어갔다가 오면 없어짐! (로컬스토리지 안해서 그런가..?)
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { usePokemonContext } from "../../context/usePokemonContext";
 
@@ -87,23 +87,6 @@ const PokemonNumber = styled.span`
   color: #777;
 `;
 
-const BackBtn = styled(Link)`
-  font-family: "DungGeunMo";
-  font-weight: bold;
-  background-color: #ff0000;
-  color: white;
-  border: transparent;
-  border-radius: 10px;
-  font-size: 18px;
-  display: block;
-  width: 120px;
-  height: 38px;
-  cursor: pointer;
-  &:hover {
-    background-color: #8b0000;
-  }
-`;
-
 const StyledBtn = styled.button`
   font-family: "DungGeunMo";
   font-weight: bold;
@@ -142,7 +125,7 @@ const RemoveBtn = styled.button`
 const Dashboard = () => {
   const { selectedPokemons, removePokemon, resetPokemons } =
     usePokemonContext();
-
+  const nav2 = useNavigate();
 
   return (
     <DashboardContainer>
@@ -161,7 +144,7 @@ const Dashboard = () => {
           ))}
       </Container>
       <BtnGroup>
-        <BackBtn to = "/">돌아가기</BackBtn>
+        <StyledBtn onClick={() => nav2(-1)}>돌아가기</StyledBtn>
         <StyledBtn onClick={resetPokemons}>초기화</StyledBtn>
       </BtnGroup>
     </DashboardContainer>

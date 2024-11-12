@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import Dashboard from '../components/pokedex/Dashboard'
 import PokemonList from '../components/pokedex/PokemonList';
 
@@ -8,12 +7,9 @@ import PokemonList from '../components/pokedex/PokemonList';
 
 const PokeDex = () => {
 
-  const { state } = useLocation();
-  console.log(state);
 
   return (
     <>
-    <audio src='/Gameboy.mp3' autoPlay ={state.fromHome} /> 
     <Dashboard  />
     <PokemonList />
     </>

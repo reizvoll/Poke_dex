@@ -14,10 +14,12 @@ const ListContainer = styled.div`
 
 const PokemonList = () => {
   const { addPokemon, removePokemon, selectedPokemons } = usePokemonContext();
+
+
   return (
     <ListContainer>
       {MOCK_DATA.map(pokemon => (
-        <PokemonCard
+        <PokemonCard 
           key={pokemon.id}
           pokemon={pokemon}
           addPokemon={addPokemon}

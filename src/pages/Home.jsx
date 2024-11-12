@@ -4,8 +4,10 @@
 // (이런걸 하는 이유는 도대체 뭘까.. 이해를 할 수 업네 진짜)
 // 음악은 audio 태그만 있으면 된다... 누구처럼 양아치마냥 설치 안해도 된다 ^-^
 
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import useSound from 'use-sound';
+import GameBoy from '/Gameboy.mp3';
 
 const HomeContainer = styled.div`
 text-align: center;
@@ -27,7 +29,7 @@ const Intro = styled.h3`
   font-weight: normal;
 `;
 
-const StartBtn = styled(Link)`
+const StartBtn = styled.button`
   font-family: 'DungGeunMo';
   background-color: red;
   color: white;
@@ -44,13 +46,29 @@ const StartBtn = styled(Link)`
   }
 `;
 
+const SoundEffects = ({ onClick, children }) => {
+  const [play] = useSound(GameBoy)
+  return (
+    <StartBtn onClick={() => {
+      play(); onClick();
+    }} >
+      {children}
+    </StartBtn>
+  );
+};
+
 const Home = () => {
 
+  const nav =useNavigate();
+
+  const ClickStart =() => {
+    nav('/PokeDex');
+  }
   return (
     <HomeContainer>
       <Logo src='/Logo.png' alt='pokedex_img' />
       <Intro>오늘의 포켓몬은 뭘까요오-?</Intro>
-      <StartBtn to = "/pokedex" state ={{fromHome : true }}> 도감 시작하기! </StartBtn>
+      <SoundEffects onClick={ClickStart}> 도감 시작하기! </SoundEffects>
     </HomeContainer>
   )
 }

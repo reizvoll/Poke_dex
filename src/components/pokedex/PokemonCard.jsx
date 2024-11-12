@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import useSound from "use-sound";
+import GameBoy from '/Gameboy.mp3';
 
 const Card = styled.div`
   width: 150px;
@@ -52,28 +54,32 @@ const AddBtn = styled.button`
   }
 `;
 
+const SoundEffects = ({ onClick, children }) => {
+  const [play] = useSound(GameBoy)
+  return (
+    <AddBtn onClick={(e) => {
+      e.stopPropagation();
+      play(); onClick();
+    }} >
+      {children}
+    </AddBtn>
+  );
+};
+
 export default function PokemonCard({ pokemon, addPokemon }) {
 
     const nav4 = useNavigate();
 
-    const goDetails = () => {
-      nav4(`/pokedetails/${pokemon.id}`);
-    };
-
-    const addEffects = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (addPokemon) {
+    const addEffects = () => {
         addPokemon(pokemon);
-      }
     };
 
     return (
-      <Card onClick={goDetails}>
+      <Card onClick={() => nav4(`/pokedetails/${pokemon.id}`)}>
         <PokemonImg src={pokemon.img_url} alt={pokemon.korean_name} />
         <PokemonName>{pokemon.korean_name}</PokemonName>
         <PokemonNumber>No. {pokemon.id}</PokemonNumber>
-        <AddBtn onClick={addEffects}>추가</AddBtn>
+        <SoundEffects onClick = {addEffects}>추가</SoundEffects>
       </Card>
     );
   }
