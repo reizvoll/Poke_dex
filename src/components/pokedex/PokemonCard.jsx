@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useSound from "use-sound";
 import GameBoy from '/Gameboy.mp3';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPokemon } from "../../redux/slices/pokemonSlice";
+import { toast } from "react-toastify";
 
 const Card = styled.div`
   width: 170px;
@@ -74,8 +75,17 @@ export default function PokemonCard({ pokemon }) {
 
     const nav4 = useNavigate();
     const dispatch = useDispatch();
+    const selectedPokemons = useSelector(state => state.pokemon.selectedPokemons)
+
     const addEffects = () => {
+      if (selectedPokemons.find(p => p.id === pokemon.id)) {
+        toast.error("이미 선택된 포켓몬입니다.", { icon: <img src="/Warning.png" alt="warning" style={{ width: '24px', height: '24px' }} /> });
+      } else if (selectedPokemons.length >= 6) {
+        toast.error("최대 6개의 포켓몬만 선택할 수 있습니다.", { icon: <img src="/Warning.png" alt="warning" style={{ width: '24px', height: '24px' }} /> });
+      } else {
         dispatch(addPokemon(pokemon));
+        toast.success(`${pokemon.korean_name}이(가) 추가되었습니다.`, { icon: <img src="/ForToast.png" alt="added" style={{ width: '24px', height: '24px' }} /> });
+      }
     };
 
     return (

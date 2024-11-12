@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { removePokemon, resetPokemons } from "../../redux/slices/pokemonSlice";
+import { toast } from "react-toastify";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -122,6 +123,17 @@ const Dashboard = () => {
   const selectedPokemons = useSelector((state) => state.pokemon.selectedPokemons);
   const nav2 = useNavigate();
 
+
+  const RemoveControl = (pokemon) => {
+    dispatch(removePokemon(pokemon));
+    toast.info(`${pokemon.korean_name}이(가) 삭제되었습니다.`, { icon: <img src="/ForToast.png" alt="deleted" style={{width: '24px', height: '24px'}}/> });
+  };
+
+  const ResetControl = () => {
+    dispatch(resetPokemons());
+    toast.warn('초기화가 완료되었습니다.', { icon: <img src="/Reset.png" alt="reset" style={{width: '38px', height: '30px'}}/> });
+  };
+
   return (
     <DashboardContainer>
       <Title>나만의 포켓몬 조합을 구성해보자!</Title>
@@ -131,7 +143,7 @@ const Dashboard = () => {
             <PokeballImg src={pokemon.img_url} alt={pokemon.korean_name} />
             <PokemonName>{pokemon.korean_name}</PokemonName>
             <PokemonNumber>No. {pokemon.id}</PokemonNumber>
-            <RemoveBtn onClick={() => dispatch(removePokemon(pokemon))}>삭제</RemoveBtn>
+            <RemoveBtn onClick={() => RemoveControl(pokemon)}>삭제</RemoveBtn>
           </CatchedList>
         ))}
         {Array(6 - selectedPokemons.length).fill(null).map((_, index) => (
@@ -140,7 +152,7 @@ const Dashboard = () => {
       </Container>
       <BtnGroup>
         <StyledBtn onClick={() => nav2(-1)}>돌아가기</StyledBtn>
-        <StyledBtn onClick={() => dispatch(resetPokemons())}>초기화</StyledBtn>
+        <StyledBtn onClick={ResetControl}>초기화</StyledBtn>
       </BtnGroup>
     </DashboardContainer>
   );
