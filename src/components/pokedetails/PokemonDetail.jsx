@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const DetailContainer = styled.div`
@@ -27,7 +28,7 @@ color: #e2e2e2;
 font-size: 16px;
 `;
 
-const BackButton = styled.button`
+const BackButton = styled(Link)`
   background-color: #ff0000;
   color: #fff;
   border: transparent;
@@ -45,7 +46,7 @@ const BackButton = styled.button`
   }
 `;
 
-const PokemonDetail = ({pokemon, onBack }) => {
+const PokemonDetail = ({pokemon }) => {
   if (!pokemon) {
     return <p>포켓몬을 찾을 수 없습니다.</p>
   }
@@ -55,7 +56,7 @@ const PokemonDetail = ({pokemon, onBack }) => {
         <PokemonImage src= {pokemon.img_url} alt={pokemon.korean_name} />
         <Title>{pokemon.korean_name}</Title>
         <Description>{pokemon.description}</Description>
-        <BackButton onClick={onBack}>뒤로 가기</BackButton>
+        <BackButton to = "/pokedex" state = {{fromHome : false}} >뒤로 가기</BackButton>
     </DetailContainer>
   );
 };

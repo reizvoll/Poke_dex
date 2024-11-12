@@ -17,19 +17,14 @@ import PokeDex from '../pages/PokeDex'
 import PokeDetails from '../pages/PokeDetails'
 import GlobalStyles from './GlobalStyles'
 
-export default function Router({ selectedPokemons, addPokemon, removePokemon, resetPokemons }) {
+export default function Router() {
   return (
   <>
     <GlobalStyles />
     <BrowserRouter>
     <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/pokedex" element={<PokeDex 
-        selectedPokemons={selectedPokemons}
-        addPokemon={addPokemon}
-        removePokemon={removePokemon}
-        resetPokemons={resetPokemons}
-        />}/>
+        <Route path="/pokedex" element={<PokeDex />}/>
         <Route path="/pokedetails/:id" element={<PokeDetails />}/>
     </Routes>
     </BrowserRouter>
