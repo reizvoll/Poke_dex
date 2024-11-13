@@ -3,6 +3,7 @@ import MOCK_DATA from "../../datas/data";
 import PokemonCard from "./PokemonCard";
 import { usePokemonContext } from "../../context/usePokemonContext";
 
+// 리스트 전체 영역
 const ListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;

@@ -1,11 +1,10 @@
-// rafc 단축기로 생성하자.. 우리는 배운 똑똑이들이잖어.
-// 오류 : 카드 추가 중복되면 alert 생성 안됨
-// 상세페이지 넘어갔다가 오면 없어짐! (로컬스토리지 안해서 그런가..?)
-
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { usePokemonContext } from "../../context/usePokemonContext";
+import useSound from "use-sound";
+import { toast } from "react-toastify";
 
+// 제일 큰거 감싸주는 친구
 const DashboardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,6 +12,7 @@ const DashboardContainer = styled.div`
   padding: 20px;
 `;
 
+// 제목
 const Title = styled.h3`
   color: #ffffff;
   margin-bottom: 60px;
@@ -20,6 +20,7 @@ const Title = styled.h3`
   font-size: 28px;
 `;
 
+// 공간 채워지는 부분
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
@@ -28,6 +29,7 @@ const Container = styled.div`
   gap: 50px;
 `;
 
+// 버튼 묶어주는 div
 const BtnGroup = styled.div`
   display: flex;
   justify-content: space-around;
@@ -36,12 +38,7 @@ const BtnGroup = styled.div`
   gap: 50px;
 `;
 
-// background: 색상 url(이미지주소값) 반복설정 위치 / 크기
-// background-size: 50px 50px;
-// background-repeat: no-repeat;
-// background-position: center;
-// background-color: #fff;
-
+// 빈 이미지 화면 (포켓볼 보이는 화면)
 const Pokeball = styled.div`
   width: 100px;
   height: 100px;
@@ -51,6 +48,7 @@ const Pokeball = styled.div`
   margin-bottom: 20px;
 `;
 
+// 조합에 들어간 포켓몬 카드 스타일
 const CatchedList = styled.div`
   display: flex;
   flex-direction: column;
@@ -69,41 +67,29 @@ const CatchedList = styled.div`
   }
 `;
 
+// 카드 내부 이미지 조정 (너무 따로 노는 관계로..)
 const PokeballImg = styled.img`
-  width: 120px;
-  height: auto;
+  width: 60px;
+  height: 80px;
   background: #fff;
-  transform: translateY(15px);
+  transform: translateY(30px);
+  margin-bottom: 30px;
 `;
 
+// 포켓몬 이름
 const PokemonName = styled.p`
   font-size: 18px;
   color: #2b2b2b;
   margin: 15px 0;
 `;
 
+// 포켓몬 번호
 const PokemonNumber = styled.span`
   font-size: 14px;
   color: #777;
 `;
 
-const StyledBtn = styled.button`
-  font-family: "DungGeunMo";
-  font-weight: bold;
-  background-color: #ff0000;
-  color: white;
-  border: transparent;
-  border-radius: 10px;
-  font-size: 18px;
-  display: block;
-  width: 120px;
-  height: 38px;
-  cursor: pointer;
-  &:hover {
-    background-color: #8b0000;
-  }
-`;
-
+// 카드 내부 삭제버튼 (다 같이 통합하면 너무 커지는 이슈때문에..)
 const RemoveBtn = styled.button`
   background-color: #ff0000;
   color: #fff;
@@ -122,10 +108,61 @@ const RemoveBtn = styled.button`
   }
 `;
 
+// 홈 돌아가는 버튼 및 초기화 버튼
+const StyledBtn = styled.button`
+  font-family: "DungGeunMo";
+  font-weight: bold;
+  background-color: #ff0000;
+  color: white;
+  border: transparent;
+  border-radius: 10px;
+  font-size: 18px;
+  display: block;
+  width: 120px;
+  height: 38px;
+  cursor: pointer;
+  &:hover {
+    background-color: #8b0000;
+  }
+`;
+
 const Dashboard = () => {
   const { selectedPokemons, removePokemon, resetPokemons } =
     usePokemonContext();
-  const nav2 = useNavigate();
+  const nav = useNavigate();
+  const [playBackSound] = useSound("/Gameboy.mp3");
+  const [playResetSound] = useSound("/Reset.mp3");
+  const [playRemoveSound] = useSound("/DeletedSound.mp3");
+
+  // 포켓몬 삭제기능 구현 (사운드 및 알림 추가)
+  const RemoveControl = pokemon => {
+    removePokemon(pokemon);
+    playRemoveSound();
+    toast.info(`${pokemon.korean_name}이(가) 삭제되었습니다.`, {
+      icon: (
+        <img
+          src="/ForToast.png"
+          alt="deleted"
+          style={{ width: "24px", height: "24px" }}
+        />
+      ),
+    });
+  };
+
+  // 포켓몬 초기화 기능 구현 (사운드 및 알림 추가)
+  const ResetControl = () => {
+    resetPokemons();
+    playResetSound();
+    toast.warn("초기화가 완료되었습니다.", {
+      icon: (
+        <img
+          src="/Reset.png"
+          alt="reset"
+          style={{ width: "38px", height: "30px" }}
+        />
+      ),
+    });
+  };
 
   return (
     <DashboardContainer>
@@ -136,16 +173,25 @@ const Dashboard = () => {
             <PokeballImg src={pokemon.img_url} alt={pokemon.korean_name} />
             <PokemonName>{pokemon.korean_name}</PokemonName>
             <PokemonNumber>No. {pokemon.id}</PokemonNumber>
-            <RemoveBtn onClick={() => removePokemon(pokemon)}>삭제</RemoveBtn>
+            <RemoveBtn onClick={() => RemoveControl(pokemon)}>삭제</RemoveBtn>
           </CatchedList>
         ))}
-        {Array(6 - selectedPokemons.length).fill(null).map((_, index) => (
+        {Array(6 - selectedPokemons.length)
+          .fill(null)
+          .map((_, index) => (
             <Pokeball key={`empty-${index}`} />
           ))}
       </Container>
       <BtnGroup>
-        <StyledBtn onClick={() => nav2(-1)}>돌아가기</StyledBtn>
-        <StyledBtn onClick={resetPokemons}>초기화</StyledBtn>
+        <StyledBtn
+          onClick={() => {
+            playBackSound();
+            nav("/");
+          }}
+        >
+          돌아가기
+        </StyledBtn>
+        <StyledBtn onClick={ResetControl}>초기화</StyledBtn>
       </BtnGroup>
     </DashboardContainer>
   );

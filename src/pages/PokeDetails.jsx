@@ -5,10 +5,9 @@ import MOCK_DATA from "../datas/data";
 
 const PokeDetails = () => {
   const { id } = useParams();
-  const nav3 = useNavigate();
-
+  const nav = useNavigate();
   const pokemon = MOCK_DATA.find(p => p.id === parseInt(id));
-  return <PokemonDetail pokemon={pokemon} onBack={() => nav3(-1)} />;
+  return <PokemonDetail pokemon={pokemon} onBack={() => nav('/pokedex')} />;
 };
 
 export default PokeDetails;
