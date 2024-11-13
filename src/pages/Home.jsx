@@ -58,8 +58,7 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      {/* <Logo alt="pokedex_img" /> */}
-      <Logo src ='/Logo.png' alt="Image" />
+      <Logo src ='/logo.png' alt="Image" />
       <Intro>오늘의 포켓몬은 뭘까요오-?</Intro>
       <StartBtn onClick={ClickStart}> 도감 시작하기! </StartBtn>
     </HomeContainer>

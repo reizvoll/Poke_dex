@@ -44,7 +44,7 @@ const BtnGroup = styled.div`
 const Pokeball = styled.div`
   width: 100px;
   height: 100px;
-  background: #2f2f2f url("${import.meta.env.VITE_URL}/Icon.png") no-repeat center / 50px 50px;
+  background: #2f2f2f url("/icon.png") no-repeat center / 50px 50px;
   border: 2px dashed #c1c1c1;
   border-radius: 10px;
   margin-bottom: 20px;
