@@ -1,15 +1,8 @@
-// 뭐라도 뜨게끔 만들어보자고요 ye?
-// rafc 단축기로 만들기!
-// 박민준의 미션 : 음악 집어넣기.. 터미널 yarn add use-sound 입력하여 useSound 활용 가능...
-// (이런걸 하는 이유는 도대체 뭘까.. 이해를 할 수 업네 진짜)
-// 음악은 audio 태그만 있으면 된다... 누구처럼 양아치마냥 설치 안해도 된다 ^-^
-// 는 무슨 해버렸다 ^-^ 살려주라... 
-
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import useSound from 'use-sound';
-import GameBoy from '/Gameboy.mp3';
 
+// Home 전체 영역
 const HomeContainer = styled.div`
 text-align: center;
 position: absolute;
@@ -18,11 +11,13 @@ left: 50%;
 transform: translate(-50%,-65%);
 `;
 
+// 로고 이미지
 const Logo = styled.img`
 width: 300px;
 height: auto;
 `;
 
+// 포켓몬은 뭘까요오 글
 const Intro = styled.h3`
   color: #fff;
   margin-bottom: 30px;
@@ -30,6 +25,7 @@ const Intro = styled.h3`
   font-weight: normal;
 `;
 
+// '시작하기' 버튼
 const StartBtn = styled.button`
   font-family: 'DungGeunMo';
   background-color: red;
@@ -47,20 +43,12 @@ const StartBtn = styled.button`
   }
 `;
 
-const SoundEffects = ({ onClick, children }) => {
-  const [play] = useSound(GameBoy)
-  return (
-    <StartBtn onClick={() => {
-      play(); onClick();
-    }} >
-      {children}
-    </StartBtn>
-  );
-};
-
 const Home = () => {
   const nav =useNavigate();
+  const [play] = useSound('/Gameboy.mp3')
+
   const ClickStart =() => {
+    play();
     nav('/PokeDex');
   }
   
@@ -68,7 +56,7 @@ const Home = () => {
     <HomeContainer>
       <Logo src='/Logo.png' alt='pokedex_img' />
       <Intro>오늘의 포켓몬은 뭘까요오-?</Intro>
-      <SoundEffects onClick={ClickStart}> 도감 시작하기! </SoundEffects>
+      <StartBtn onClick={ClickStart}> 도감 시작하기! </StartBtn>
     </HomeContainer>
   )
 }

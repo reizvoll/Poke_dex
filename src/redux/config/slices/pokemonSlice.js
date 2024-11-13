@@ -1,5 +1,3 @@
-// rxslice!!! 개쩐당!!! ^-^)b
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -7,7 +5,7 @@ const initialState = {
 };
 
 const pokemonSlice = createSlice({
-  name: "pokemon",
+  name: 'pokemon',
   initialState,
   reducers: {
     addPokemon: (state, action) => {

@@ -1,3 +1,5 @@
+// 포켓몬 데이터는 이곳에서!
+
 const MOCK_DATA = [
     {
       img_url:

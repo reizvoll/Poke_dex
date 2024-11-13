@@ -1,10 +1,10 @@
-// StyledToastContainer.js
 import styled from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// 토스트 꾸며주기
 const StyledToastContainer = styled(ToastContainer).attrs({
-  position: "top-right",
+  position: 'top-right',
   autoClose: 3000,
   hideProgressBar: false,
   closeOnClick: true,

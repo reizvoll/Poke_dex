@@ -1,9 +1,13 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import MOCK_DATA from "../../datas/data";
+import {
+  addPokemon,
+  removePokemon,
+} from "../../redux/config/slices/pokemonSlice";
 import PokemonCard from "./PokemonCard";
-import { useDispatch, useSelector } from "react-redux";
-import { addPokemon, removePokemon } from "../../redux/slices/pokemonSlice";
 
+// 리스트 전체 영역
 const ListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +24,7 @@ const PokemonList = () => {
   return (
     <ListContainer>
       {MOCK_DATA.map(pokemon => (
-        <PokemonCard 
+        <PokemonCard
           key={pokemon.id}
           pokemon={pokemon}
           addPokemon={() => dispatch(addPokemon(pokemon))}
