@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 // 카드 전체
 const Card = styled.div`
-  width: 170px;
+  width: 160px;
   height: 240px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -25,8 +25,8 @@ const Card = styled.div`
 
 // 카드 이미지 (너무 커서 잘리는 관계로 크기 고정)
 const PokemonImg = styled.img`
-  width: 60px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   margin-top: 10px;
   margin-bottom: 10px;
 `;

@@ -1,10 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import {
-  removePokemon,
-  resetPokemons,
-} from "../../redux/config/slices/pokemonSlice";
+import { removePokemon, resetPokemons } from "../../redux/config/slices/pokemonSlice";
 import { toast } from "react-toastify";
 import useSound from "use-sound";
 import.meta.env.VITE_URL
@@ -189,9 +186,8 @@ const Dashboard = () => {
       </Container>
       <BtnGroup>
         <StyledBtn
-          onClick={() => {
-            playBackSound();
-            nav("/");
+          onClick={() => { playBackSound();
+nav("/");
           }}
         >
           돌아가기

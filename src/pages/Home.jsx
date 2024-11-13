@@ -12,13 +12,13 @@ const HomeContainer = styled.div`
 `;
 
 // 로고 이미지
-const Logo = styled.div`
+const Logo = styled.img`
   width: 350px;
   height: 300px;
   margin: auto;
-  background-image: url("${import.meta.env.VITE_URL}/Logo.png");
+  /* background-image: url("${import.meta.env.VITE_URL}/Logo.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 `;
 
 // 포켓몬은 뭘까요오 글
@@ -59,7 +59,7 @@ const Home = () => {
   return (
     <HomeContainer>
       {/* <Logo alt="pokedex_img" /> */}
-      <Logo alt="" />
+      <Logo src ='/Logo.png' alt="Image" />
       <Intro>오늘의 포켓몬은 뭘까요오-?</Intro>
       <StartBtn onClick={ClickStart}> 도감 시작하기! </StartBtn>
     </HomeContainer>
