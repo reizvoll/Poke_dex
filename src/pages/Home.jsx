@@ -1,20 +1,24 @@
-import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
-import useSound from 'use-sound';
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import useSound from "use-sound";
 
 // Home 전체 영역
 const HomeContainer = styled.div`
-text-align: center;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-65%);
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -65%);
 `;
 
 // 로고 이미지
-const Logo = styled.img`
-width: 300px;
-height: auto;
+const Logo = styled.div`
+  width: 350px;
+  height: 300px;
+  margin: auto;
+  background-image: url("${import.meta.env.VITE_URL}/Logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 // 포켓몬은 뭘까요오 글
@@ -27,7 +31,7 @@ const Intro = styled.h3`
 
 // '시작하기' 버튼
 const StartBtn = styled.button`
-  font-family: 'DungGeunMo';
+  font-family: "DungGeunMo";
   background-color: red;
   color: white;
   border: transparent;
@@ -44,21 +48,22 @@ const StartBtn = styled.button`
 `;
 
 const Home = () => {
-  const nav =useNavigate();
-  const [play] = useSound('/Gameboy.mp3')
+  const nav = useNavigate();
+  const [play] = useSound("/Gameboy.mp3");
 
-  const ClickStart =() => {
+  const ClickStart = () => {
     play();
-    nav('/PokeDex');
-  }
-  
+    nav("/PokeDex");
+  };
+
   return (
     <HomeContainer>
-      <Logo src='/Logo.png' alt='pokedex_img' />
+      {/* <Logo alt="pokedex_img" /> */}
+      <Logo alt="" />
       <Intro>오늘의 포켓몬은 뭘까요오-?</Intro>
       <StartBtn onClick={ClickStart}> 도감 시작하기! </StartBtn>
     </HomeContainer>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
