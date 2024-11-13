@@ -9,7 +9,7 @@ function App() {
   <Provider store={store}>
     <Router />
     <StyledToastContainer />
-    </Provider>
+  </Provider>
   );
 }
 
