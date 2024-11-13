@@ -62,7 +62,7 @@
       </summary>
 
         src
-        ├── assets
+        ├── assets (아 처음 했었던 거니까 봐주십쇼. 어흑흑.)
         │   └── Datas.jsx
         ├── components
         │   ├── pokedetails
