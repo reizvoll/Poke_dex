@@ -36,18 +36,18 @@
 <br>일단 이 친구가 홈 화면이고요
 
 <br>
-<img src="https://github.com/user-attachments/assets/06f6e057-f53a-48fb-8096-d8ffd0d0e59f" width="1080" height="720"/>
+<img src="https://github.com/user-attachments/assets/06f6e057-f53a-48fb-8096-d8ffd0d0e59f" width="700" height="380"/>
 
 
 <br>이 친구가 Dex(도감) 화면
 
 <br>
-<img src="https://github.com/user-attachments/assets/a87c542d-b425-4051-af0f-2fbcd13b82d3" width="1080" height="720"/>
+<img src="https://github.com/user-attachments/assets/a87c542d-b425-4051-af0f-2fbcd13b82d3" width="700" height="380"/>
 
 <br>그리고 요놈이 Details(카드 설명) 화면입니둥.
 
 <br>
-<img src="https://github.com/user-attachments/assets/6bca6749-f9e5-4a1e-85ce-139e1441cd76" width="1080" height="720"/>
+<img src="https://github.com/user-attachments/assets/6bca6749-f9e5-4a1e-85ce-139e1441cd76" width="700" height="380"/>
 
 
 ## [필수 구현 사항]
@@ -62,7 +62,7 @@
       </summary>
 
         src
-        ├── assets
+        ├── assets (아 처음 했었던 거니까 봐주십쇼. 어흑흑.)
         │   └── Datas.jsx
         ├── components
         │   ├── pokedetails
@@ -202,11 +202,10 @@
 
 - 알림 기능 구현
   - props-drilling 을 제외한 나머지 branch, react-toastify를 활용하여 UI 구현 <br> (선택기능 UI 라이브러리 구현완료)
- <center>
+  <br>
 <img src="https://github.com/user-attachments/assets/d2ee0055-5819-458e-a230-38d58ee9c198" width="200" height="100"/>
 <img src="https://github.com/user-attachments/assets/963f6e00-b066-43d5-885c-864eede581e0" width="200" height="100"/>
 <img src="https://github.com/user-attachments/assets/075b7377-ca8a-4d26-ae65-98f8962f202f" width="200" height="80"/>
-</center>
 
 
 <br>
