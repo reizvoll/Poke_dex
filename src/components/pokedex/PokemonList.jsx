@@ -7,7 +7,7 @@ import {
 } from "../../redux/config/slices/pokemonSlice";
 import PokemonCard from "./PokemonCard";
 
-// 리스트 전체 영역 (가운데 정렬 안맞아서 바꿈 바꿔줘야함)
+// 리스트 전체 영역 (가운데 정렬 안맞아서 바꿈)
 const ListContainer = styled.div`
   display: flex;
   justify-content: center;
