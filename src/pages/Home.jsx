@@ -16,9 +16,6 @@ const Logo = styled.img`
   width: 350px;
   height: 300px;
   margin: auto;
-  /* background-image: url("${import.meta.env.VITE_URL}/Logo.png");
-  background-repeat: no-repeat;
-  background-size: cover; */
 `;
 
 // 포켓몬은 뭘까요오 글

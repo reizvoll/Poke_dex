@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { removePokemon, resetPokemons } from "../../redux/config/slices/pokemonSlice";
 import { toast } from "react-toastify";
 import useSound from "use-sound";
-import.meta.env.VITE_URL
 
 // 제일 큰거 감싸주는 친구
 const DashboardContainer = styled.div`
