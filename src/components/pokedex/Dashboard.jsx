@@ -10,6 +10,7 @@ const DashboardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  text-align: center;
 `;
 
 // 제목
@@ -23,6 +24,7 @@ const Title = styled.h3`
 // 공간 채워지는 부분
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   width: auto;
   margin-bottom: 40px;
