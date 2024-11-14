@@ -62,27 +62,29 @@
       </summary>
 
         src
-        ├── assets (아 처음 했었던 거니까 봐주십쇼. 어흑흑.)
-        │   └── Datas.jsx
         ├── components
         │   ├── pokedetails
+        │   │   └── PokemonDetail.jsx
         │   └── pokedex
+        │       ├── Dashboard.jsx
+        │       ├── PokemonCard.jsx
+        │       └── PokemonList.jsx
+        ├── data
+        │   └── Datas.jsx
         ├── pages
         │   ├── Home.jsx
         │   ├── PokeDetails.jsx
         │   └── PokeDex.jsx
         ├── shared
         │   ├── GlobalStyles.jsx
-        │   └── Router.jsx
-        ├── App.css
-        ├── App.jsx
-        ├── index.css
+        │   ├── Router.jsx
+        │   └── App.jsx
         ├── main.jsx
         ├── .gitignore
-        ├── README.md
         ├── eslint.config.js
         ├── index.html
         ├── package.json
+        ├── README.md
         ├── vite.config.js
         └── yarn.lock
        
@@ -107,7 +109,7 @@
         ├── context
         │   ├── PokemonProvider.jsx
         │   └── usePokemonContext.js
-        ├── datas
+        ├── data
         │   ├── colorData.js
         │   └── data.js
         ├── pages
@@ -154,7 +156,7 @@
         │       ├── Dashboard.jsx
         │       ├── PokemonCard.jsx
         │       └── PokemonList.jsx
-        ├── datas
+        ├── data
         │   ├── colorData.js
         │   └── data.js
         ├── pages
@@ -205,7 +207,7 @@
   <br>
 <img src="https://github.com/user-attachments/assets/d2ee0055-5819-458e-a230-38d58ee9c198" width="200" height="100"/>
 <img src="https://github.com/user-attachments/assets/963f6e00-b066-43d5-885c-864eede581e0" width="200" height="100"/>
-<img src="https://github.com/user-attachments/assets/075b7377-ca8a-4d26-ae65-98f8962f202f" width="200" height="80"/>
+<img src="https://github.com/user-attachments/assets/075b7377-ca8a-4d26-ae65-98f8962f202f" width="200" height="60"/>
 
 
 <br>

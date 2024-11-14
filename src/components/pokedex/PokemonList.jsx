@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import MOCK_DATA from "../../datas/data";
+import MOCK_DATA from "../../data/data";
 import {
   addPokemon,
   removePokemon,

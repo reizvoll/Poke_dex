@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import MOCK_DATA from "../../datas/data";
-import COLOR_DATA from "../../datas/colorData";
+import MOCK_DATA from "../../data/data";
+import COLOR_DATA from "../../data/colorData";
 import useSound from "use-sound";
 import {
   addPokemon,
