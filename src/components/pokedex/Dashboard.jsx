@@ -4,25 +4,27 @@ import PokemonList from "./PokemonList";
 
 
 const DashboardContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
 `;
 
 const Title = styled.h3`
-    color: #ffffff;
-    margin-bottom: 60px;
-    font-weight: normal;
-    font-size: 28px;
-    `;
+  color: #ffffff;
+  margin-bottom: 60px;
+  font-weight: normal;
+  font-size: 28px;
+`;
 
 const Container = styled.div`
-    display: flex;
-    justify-content: space-around;
-    width: auto;
-    margin-bottom: 40px;
-    gap: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: auto;
+  margin-bottom: 40px;
+  gap: 50px;
 `;
 
 const BtnGroup = styled.div`
