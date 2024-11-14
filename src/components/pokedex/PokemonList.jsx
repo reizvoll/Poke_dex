@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MOCK_DATA from "../../datas/data";
+import MOCK_DATA from "../../data/data";
 import PokemonCard from "./PokemonCard";
 import { usePokemonContext } from "../../context/usePokemonContext";
 

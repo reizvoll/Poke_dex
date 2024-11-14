@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import PokemonDetail from "../components/pokedetails/PokemonDetail";
-import MOCK_DATA from "../datas/data";
+import MOCK_DATA from "../data/data";
 
 
 const PokeDetails = () => {

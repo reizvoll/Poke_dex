@@ -33,7 +33,7 @@
 
 ## 간단소개
 
-<br>일단 이 친구가 홈 화면이고요
+<br>일단 이 친구가 Home 화면이고요
 
 <br>
 <img src="https://github.com/user-attachments/assets/06f6e057-f53a-48fb-8096-d8ffd0d0e59f" width="700" height="380"/>
@@ -62,11 +62,11 @@
       </summary>
 
         src
-        ├── assets (아 처음 했었던 거니까 봐주십쇼. 어흑흑.)
-        │   └── Datas.jsx
         ├── components
         │   ├── pokedetails
         │   └── pokedex
+        ├── data
+        │   └── data.js
         ├── pages
         │   ├── Home.jsx
         │   ├── PokeDetails.jsx
@@ -74,15 +74,13 @@
         ├── shared
         │   ├── GlobalStyles.jsx
         │   └── Router.jsx
-        ├── App.css
         ├── App.jsx
-        ├── index.css
         ├── main.jsx
         ├── .gitignore
-        ├── README.md
         ├── eslint.config.js
         ├── index.html
         ├── package.json
+        ├── README.md
         ├── vite.config.js
         └── yarn.lock
        
@@ -107,7 +105,7 @@
         ├── context
         │   ├── PokemonProvider.jsx
         │   └── usePokemonContext.js
-        ├── datas
+        ├── data
         │   ├── colorData.js
         │   └── data.js
         ├── pages
@@ -117,10 +115,10 @@
         ├── shared
         │   ├── GlobalStyles.jsx
         │   ├── Router.jsx
-        │   ├── App.jsx
-        │   └── main.jsx
         ├── utils
         │   └── toastcontainer.js
+        ├── App.jsx
+        ├── main.jsx
         ├── .gitignore
         ├── eslint.config.js
         ├── index.html
@@ -143,10 +141,6 @@
       </summary>
 
         src
-        ├── assets
-        │   └── images
-        │       ├── Icon.png
-        │       └── Logo.png
         ├── components
         │   ├── pokedetails
         │   │   └── PokemonDetail.jsx
@@ -154,7 +148,7 @@
         │       ├── Dashboard.jsx
         │       ├── PokemonCard.jsx
         │       └── PokemonList.jsx
-        ├── datas
+        ├── data
         │   ├── colorData.js
         │   └── data.js
         ├── pages
@@ -164,13 +158,13 @@
         ├── redux
         │   └── config
         │       ├── slices
+        │       │   └── pokemonSlice.js
         │       └── store.js
         ├── shared
         │   ├── GlobalStyles.jsx
         │   └── Router.jsx
         ├── utils
         │   └── toastcontainer.js
-        ├── .env
         ├── App.jsx
         ├── main.jsx
         ├── .gitignore
@@ -191,7 +185,7 @@
 
 <br>
 
-- 도감 페이지 구성 (ㄴ...네 코드 보시면 압니다... yo)
+- 도감 페이지 구성 (...네 코드 보시면 압니다... yo)
 
 <br>
 
@@ -205,7 +199,7 @@
   <br>
 <img src="https://github.com/user-attachments/assets/d2ee0055-5819-458e-a230-38d58ee9c198" width="200" height="100"/>
 <img src="https://github.com/user-attachments/assets/963f6e00-b066-43d5-885c-864eede581e0" width="200" height="100"/>
-<img src="https://github.com/user-attachments/assets/075b7377-ca8a-4d26-ae65-98f8962f202f" width="200" height="80"/>
+<img src="https://github.com/user-attachments/assets/075b7377-ca8a-4d26-ae65-98f8962f202f" width="200" height="60"/>
 
 
 <br>

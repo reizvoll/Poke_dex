@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 import styled from 'styled-components'
-import COLOR_DATA from '../../datas/colorData';
+import COLOR_DATA from '../../data/colorData';
 import { usePokemonContext } from '../../context/usePokemonContext';
 import useSound from 'use-sound';
 
@@ -141,7 +141,7 @@ const PokemonDetail = ({ pokemon, onBack }) => {
       </TypeContainer>
         <Description>{pokemon.description}</Description>
         <BtnGroup>
-        <Btns onClick={addRemove}> {selectedPokemons.some(p => p.id === pokemon.id) ? '삭제' : '추가'} </Btns>
+        <Btns onClick={addRemove}> {selectedPokemons.some(p => p.id === pokemon.id) ? '삭제하기' : '추가하기'} </Btns>
         <Btns onClick={onBack}>뒤로 가기</Btns>
       </BtnGroup>
     </DetailContainer>
