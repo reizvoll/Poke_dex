@@ -1,6 +1,3 @@
-// 뭐라도 뜨게끔 만들어보자고요 ye?
-// rafc 단축기로 만들기!
-
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 

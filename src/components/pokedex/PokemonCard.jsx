@@ -54,10 +54,10 @@ const AddBtn = styled.button`
 
 export default function PokemonCard({ pokemon, addPokemon }) {
 
-    const nav4 = useNavigate();
+    const nav = useNavigate();
 
     const goDetails = () => {
-      nav4(`/pokedetails/${pokemon.id}`);
+      nav(`/pokedetails/${pokemon.id}`);
     };
 
     const addEffects = (e) => {

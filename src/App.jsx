@@ -1,5 +1,3 @@
-// rfc하라고!!!!
-
 import { useState } from 'react';
 import Router from './shared/Router'
 

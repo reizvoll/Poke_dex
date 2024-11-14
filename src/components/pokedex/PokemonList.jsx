@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import MOCK_DATA from '../../assets/Datas';
 import PokemonCard from './PokemonCard';
+import MOCK_DATA from '../../data/data';
 
 // 리스트 전체 영역 (가운데 정렬 안맞아서 바꿈)
 const ListContainer = styled.div`

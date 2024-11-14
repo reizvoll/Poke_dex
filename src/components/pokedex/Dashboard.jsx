@@ -1,7 +1,3 @@
-// rafc 단축기로 생성하자.. 우리는 배운 똑똑이들이잖어.
-// 오류 : 카드 추가 중복되면 alert 생성 안됨
-// 상세페이지 넘어갔다가 오면 없어짐! (로컬스토리지 안해서 그런가..?)
-
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PokemonList from "./PokemonList";
@@ -36,13 +32,6 @@ const BtnGroup = styled.div`
     margin-bottom: 40px;
     gap: 50px;
 `;
-
-// background: 색상 url(이미지주소값) 반복설정 위치 / 크기
-// background-size: 50px 50px;
-// background-repeat: no-repeat;
-// background-position: center;
-// background-color: #fff;
-
 
 const Pokeball = styled.div`
     width: 100px;
@@ -126,8 +115,7 @@ const RemoveBtn = styled.button`
 
 
 const Dashboard = ({ selectedPokemons, removePokemon, resetPokemons, addPokemon }) => {
-  const nav2 = useNavigate();
-
+  const nav = useNavigate();
 
   return (
       <DashboardContainer>
@@ -146,7 +134,7 @@ const Dashboard = ({ selectedPokemons, removePokemon, resetPokemons, addPokemon 
         ))}
           </Container>
           <BtnGroup>
-              <StyledBtn onClick={() => nav2(-1)}>돌아가기</StyledBtn>
+              <StyledBtn onClick={() => nav('/')}>돌아가기</StyledBtn>
               <StyledBtn onClick={resetPokemons}>초기화</StyledBtn>
           </BtnGroup>
           <PokemonList addPokemon={addPokemon} removePokemon={removePokemon} selectedPokemons={selectedPokemons}/>

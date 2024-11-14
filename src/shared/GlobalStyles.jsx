@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 @font-face {
@@ -16,5 +16,4 @@ body{
 }
 `;
 
-
-export default GlobalStyles
+export default GlobalStyles;

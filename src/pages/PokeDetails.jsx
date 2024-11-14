@@ -1,15 +1,15 @@
 import { useNavigate, useParams } from 'react-router-dom'
-import MOCK_DATA from '../assets/Datas';
 import PokemonDetail from '../components/pokedetails/PokemonDetail';
+import MOCK_DATA from '../data/data';
 
 const PokeDetails = () => {
 
   const { id } = useParams();
-  const nav3 = useNavigate();
+  const nav = useNavigate();
 
   const pokemon = MOCK_DATA.find((p) => p.id === parseInt(id));
   return (
-    <PokemonDetail pokemon={pokemon} onBack={() => nav3(-1)} />
+    <PokemonDetail pokemon={pokemon} onBack={() => nav('/pokedex')} />
   )
 }
 
